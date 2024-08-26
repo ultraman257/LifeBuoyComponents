@@ -1,0 +1,62 @@
+.lifebuoy-button {
+    width: 5em;
+    position: relative;
+}
+
+.lifebuoy-button button {
+    z-index: 1;
+    background: rgba(196, 193, 218, 0.18);
+    position: relative;
+    width: 100%;
+    border: 1px solid rgba(196, 193, 218, 00);
+    border-radius: 5px;
+    backdrop-filter: blur(20px);
+    color: #c4c1da;
+    padding: 0.5em 1em;
+}
+
+.lifebuoy-button--confetti-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.lifebuoy-button--confetti-relative-fix {
+    position: relative;
+}
+
+
+
+
+.lifebuoy-button--confetti {
+    content: '';
+    position: absolute;
+    display: block;
+    border-radius: 50px;
+    width: 5px;
+    transform-origin: center center;
+    height: 5px;
+    z-index: -1;
+    /*transition: all 0.1s ease;*/
+}
+
+.lifebuoy-button--confetti-red {
+    background: red;
+}
+
+.lifebuoy-button--confetti-blue {
+    background: dodgerblue;
+}
+
+.lifebuoy-button--confetti-green {
+    background: forestgreen;
+}
+
+.lifebuoy-button--confetti-orange {
+    background: orangered;
+}
+
+.lifebuoy-button--confetti-yellow {
+    background: orange;
+}

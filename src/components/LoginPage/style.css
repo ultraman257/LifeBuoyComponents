@@ -1,0 +1,36 @@
+.lifebuoy-page--login {
+    display: flex;
+}
+
+.lifebuoy-page--login h1 {
+    color: #c4c1da;
+    font-smooth: always;
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 0;
+    text-align: left;
+    margin: 0 0 0.5em 0;
+    font-variant: all-small-caps;
+}
+
+.lifebuoy-page--login .loginForm {
+    padding: 3em;
+    background: #0b0615;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, rgb(23, 8, 53) 0%, rgb(45, 24, 87) 100%);
+    border-radius: 5px;
+}
+
+.lifebuoy-page--login .loginForm .button-group {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+.lifebuoy-page--login .loginForm .button-group .lifebuoy-button {
+    flex: 1 1 0;
+    margin-top: 1em;
+}
