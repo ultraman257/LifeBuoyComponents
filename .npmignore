@@ -4,8 +4,4 @@ README.md
 rollup.config.js
 tsconfig.json
 .babelrc
-.nvmrc
-scripts
-README.md
 vite.config.js
-node_modules
