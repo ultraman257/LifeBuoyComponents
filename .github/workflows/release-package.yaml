@@ -19,6 +19,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm run build
-      - run: cd dist && npm publish
+      - run: mkdir temp_publish
+      - run: cp -r dist/* temp_publish/
+      - run: cd temp_publish && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
