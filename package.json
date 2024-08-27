@@ -2,7 +2,7 @@
   "name": "@robertwilkinson-dev/lifebuoy-components",
   "repository": "https://github.com/robertwilkinson-dev/LifeBuoyComponents",
   "private": false,
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "main": "./index.cjs",
   "module": "./index.es.mjs",
@@ -14,9 +14,6 @@
       "types": "./index.d.ts"
     }
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "rm -rf dist && rollup -c --bundleConfigAsCjs",
     "build-watch": "rollup -c --watch --bundleConfigAsCjs",
