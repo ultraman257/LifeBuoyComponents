@@ -7,7 +7,6 @@ import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 import postcss from 'rollup-plugin-postcss';
 
-// Utility function to create different output configurations
 const createConfig = (input, file, format) => ({
     input,
     output: [
@@ -22,13 +21,13 @@ const createConfig = (input, file, format) => ({
             globals: {
                 react: 'React',
                 'react-dom': 'ReactDOM',
-                'react/jsx-runtime': 'jsxRuntime' // Only needed if bundling with UMD or other formats in mind
+                'react/jsx-runtime': 'jsxRuntime'
             }
         }
     ],
     external: ['react', 'react-dom', 'react/jsx-runtime'],
     plugins: [
-        external(), // Exclude peerDependencies from the bundle
+        external(),
         resolve({
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
             browser: true,
@@ -38,7 +37,7 @@ const createConfig = (input, file, format) => ({
         babel({
             babelHelpers: 'bundled',
             exclude: 'node_modules/**',
-            presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+            presets: [['@babel/preset-env', { modules: false }], ['@babel/preset-react', { "runtime": "automatic" }]],
             extensions: ['.js', '.jsx', '.ts', '.tsx']
         }),
         postcss({
