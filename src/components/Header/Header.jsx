@@ -1,5 +1,5 @@
 import {useRef, useState} from "react";
-import PropTypes from "prop-types";
+import * as PropTypes from "prop-types";
 import {AnimatePresence, motion} from "framer-motion";
 
 import './style.css';

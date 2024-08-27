@@ -2,7 +2,7 @@ import {Header} from "../Header/Header.jsx";
 import {useState} from "react";
 import {TextInput} from "../TextInput/TextInput.jsx";
 import {Button} from "../Button/Button.jsx";
-import PropTypes from "prop-types";
+import * as PropTypes from "prop-types";
 
 import './style.css';
 

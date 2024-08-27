@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import './style.css';
+import * as PropTypes from "prop-types";
 
 export const TextInput = ({ placeholder, value, label, helpText, errorText, isError, setValue, name, overrideType = 'text' }) => {
 
