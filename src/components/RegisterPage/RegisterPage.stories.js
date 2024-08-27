@@ -1,5 +1,5 @@
-import {RegisterPage} from "./RegisterPage.jsx";
-import {fn} from "@storybook/test";
+import { RegisterPage } from './RegisterPage.jsx';
+import { fn } from '@storybook/test';
 
 import './style.css';
 
@@ -13,14 +13,13 @@ export default {
     args: {
         onLogin: fn()
     }
-
-}
+};
 
 export const Register = {
     args: {
         onRegister: undefined
     }
-}
+};
 
 export const RegisterError = {
     args: {
@@ -28,4 +27,4 @@ export const RegisterError = {
         isError: true,
         message: 'An error of some kind occurred.'
     }
-}
+};

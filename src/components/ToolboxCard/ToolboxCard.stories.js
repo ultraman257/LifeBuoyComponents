@@ -1,4 +1,4 @@
-import {ToolboxCard} from './ToolboxCard.jsx'
+import { ToolboxCard } from './ToolboxCard.jsx';
 
 export default {
     title: 'LifeBuoy/ToolboxCard',
@@ -7,13 +7,14 @@ export default {
     tags: ['autodocs'],
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
-        layout: 'centered',
+        layout: 'centered'
     }
 };
 
 export const Default = {
-    args:{
+    args: {
         itemName: 'Demo Content',
-        itemDescription: 'Open this tool to do absolutly notbing as it\'s currently under development'
-    },
+        itemDescription:
+            "Open this tool to do absolutly notbing as it's currently under development"
+    }
 };
