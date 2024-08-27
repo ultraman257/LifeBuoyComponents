@@ -1,5 +1,5 @@
-import {LoginPage} from "./LoginPage.jsx";
-import {fn} from "@storybook/test";
+import { LoginPage } from './LoginPage.jsx';
+import { fn } from '@storybook/test';
 
 import './style.css';
 
@@ -13,14 +13,13 @@ export default {
     args: {
         onLogin: fn()
     }
-
-}
+};
 
 export const Login = {
     args: {
         onLogin: undefined
     }
-}
+};
 
 export const LoginError = {
     args: {
@@ -28,4 +27,4 @@ export const LoginError = {
         isError: true,
         message: 'An error of some kind occurred.'
     }
-}
+};
