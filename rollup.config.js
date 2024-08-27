@@ -50,6 +50,7 @@ const createConfig = (input, file, format) => ({
                     const packageJson = JSON.parse(contents.toString());
                     delete packageJson.scripts;
                     delete packageJson.devDependencies;
+                    delete packageJson.eslintConfig;
                     return JSON.stringify(packageJson, null, 2);
                 } }
             ]
