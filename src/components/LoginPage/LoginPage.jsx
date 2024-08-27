@@ -6,7 +6,7 @@ import * as PropTypes from 'prop-types';
 
 import './style.css';
 
-export const LoginPage = ({ isError = false }) => {
+export const LoginPage = ({ isError = false, handleRegister, handleLogin }) => {
     const [formData, setFormData] = useState({});
 
     const handleFieldChange = e => {
@@ -18,7 +18,7 @@ export const LoginPage = ({ isError = false }) => {
     };
 
     const handleClick = e => {
-        console.log(e);
+        handleLogin(formData);
     };
 
     return (
@@ -46,7 +46,7 @@ export const LoginPage = ({ isError = false }) => {
                 />
                 <div className={'button-group'}>
                     <Button onClick={handleClick} content={'Login'} />
-                    <Button onClick={handleClick} content={'Forgot Password'} />
+                    <Button onClick={handleRegister} content={'Register'} />
                 </div>
             </div>
         </div>
@@ -54,5 +54,7 @@ export const LoginPage = ({ isError = false }) => {
 };
 
 LoginPage.propTypes = {
-    isError: PropTypes.bool
+    isError: PropTypes.bool,
+    handleRegister: PropTypes.func,
+    handleLogin: PropTypes.func
 };

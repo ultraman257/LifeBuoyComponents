@@ -4,7 +4,7 @@ import { TextInput } from '../TextInput/TextInput.jsx';
 import { Button } from '../Button/Button.jsx';
 import * as PropTypes from 'prop-types';
 
-export const RegisterPage = ({ onRegister, isError = false }) => {
+export const RegisterPage = ({ onRegister, isError = false, handleRegister, handleLogin }) => {
     const [formData, setFormData] = useState({});
 
     const handleFieldChange = e => {
@@ -16,7 +16,7 @@ export const RegisterPage = ({ onRegister, isError = false }) => {
     };
 
     const handleClick = e => {
-        console.log(e);
+        handleRegister(formData);
     };
 
     const superMenu = (
@@ -77,7 +77,7 @@ export const RegisterPage = ({ onRegister, isError = false }) => {
                 />
                 <div className={'button-group'}>
                     <Button onClick={handleClick} content={'Register'} />
-                    <Button onClick={handleClick} content={'Back to Login'} />
+                    <Button onClick={handleLogin} content={'Back to Login'} />
                 </div>
             </div>
         </div>
@@ -85,5 +85,7 @@ export const RegisterPage = ({ onRegister, isError = false }) => {
 };
 
 RegisterPage.PropTypes = {
-    isError: PropTypes.bool
+    isError: PropTypes.bool,
+    handleRegister: PropTypes.func,
+    handleLogin: PropTypes.func
 };
