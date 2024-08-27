@@ -1,5 +1,7 @@
 .lifebuoy-page--login {
     display: flex;
+    width: 100vw;
+    height: 100vh;
 }
 
 .lifebuoy-page--login h1 {

@@ -4,6 +4,8 @@ import {TextInput} from "../TextInput/TextInput.jsx";
 import {Button} from "../Button/Button.jsx";
 import PropTypes from "prop-types";
 
+import './style.css';
+
 export const LoginPage = ({ isError = false }) => {
 
     const [formData, setFormData] = useState({})
