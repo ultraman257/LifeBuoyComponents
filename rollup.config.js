@@ -4,36 +4,31 @@ import external from 'rollup-plugin-peer-deps-external';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-// import { dts } from 'rollup-plugin-dts';
 import copy from 'rollup-plugin-copy';
 import postcss from 'rollup-plugin-postcss';
 
+// Utility function to create different output configurations
 const createConfig = (input, file, format) => ({
     input,
     output: [
-        format === 'cjs'
-            ? {
-                  file: `${file}.cjs`,
-                  format: 'cjs',
-                  interop: 'auto',
-                  sourcemap: true,
-                  generatedCode: {
-                      reservedNamesAsProps: false
-                  }
-              }
-            : {
-                  file: `${file}.es.mjs`,
-                  format: 'esm',
-                  interop: 'auto',
-                  sourcemap: true,
-                  generatedCode: {
-                      reservedNamesAsProps: false
-                  }
-              }
+        {
+            file: `${file}.${format === 'cjs' ? 'cjs' : 'es.mjs'}`,
+            format: format,
+            interop: 'auto',
+            sourcemap: true,
+            generatedCode: {
+                reservedNamesAsProps: false
+            },
+            globals: {
+                react: 'React',
+                'react-dom': 'ReactDOM',
+                'react/jsx-runtime': 'jsxRuntime' // Only needed if bundling with UMD or other formats in mind
+            }
+        }
     ],
     external: ['react', 'react-dom', 'react/jsx-runtime'],
     plugins: [
-        external(),
+        external(), // Exclude peerDependencies from the bundle
         resolve({
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
             browser: true,
@@ -50,22 +45,21 @@ const createConfig = (input, file, format) => ({
             extensions: ['.css']
         }),
         copy({
-            targets: [{ src: 'package.json', dest: 'dist' }]
+            targets: [
+                { src: 'package.json', dest: 'dist', transform: (contents) => {
+                    const packageJson = JSON.parse(contents.toString());
+                    delete packageJson.scripts;
+                    delete packageJson.devDependencies;
+                    return JSON.stringify(packageJson, null, 2);
+                } }
+            ]
         }),
         commonjs(),
         terser()
     ]
 });
 
-// add this back in to support types
-// const dynamicDtsConfig = (src, dest) => ({
-//   input: src,
-//   output: { file: dest, format: 'es' },
-//   plugins: [dts()],
-// });
-
 export default [
     createConfig('src/components/index', 'dist/index', 'cjs'),
     createConfig('src/components/index', 'dist/index', 'es')
-    // dynamicDtsConfig('src/components/index.ts', 'dist/index.d.ts'),
 ];
