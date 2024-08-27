@@ -47,6 +47,6 @@ export const LoginPage = ({ isError = false }) => {
 
 }
 
-LoginPage.PropTypes = {
+LoginPage.propTypes = {
     isError: PropTypes.bool
 }

@@ -25,12 +25,12 @@ export const TextInput = ({ placeholder, value, label, helpText, errorText, isEr
 
 TextInput.propTypes = {
     placeholder: PropTypes.string,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     helpText: PropTypes.string,
     isError: PropTypes.bool,
     errorText: PropTypes.string,
     overrideType: PropTypes.string,
-    setValue: PropTypes.func.isRequired
+    setValue: PropTypes.func
 }
