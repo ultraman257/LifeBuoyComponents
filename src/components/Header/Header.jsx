@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import * as PropTypes from 'prop-types';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import './style.css';
+import './style.module.css';
 
 export const Header = ({ user, isLoggedIn, superMenuOverride }) => {
     const menuRef = useRef(null);
