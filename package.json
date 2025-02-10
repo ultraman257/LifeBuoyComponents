@@ -2,7 +2,7 @@
   "name": "@ultraman257/lifebuoy-components",
   "repository": "https://github.com/ultraman257/LifeBuoyComponents",
   "private": false,
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "main": "./index.cjs",
   "module": "./index.es.mjs",
