@@ -1,5 +1,6 @@
 import './style.css';
 import * as PropTypes from 'prop-types';
+import {useState} from "react";
 
 export const TextInput = ({
     placeholder,
@@ -12,10 +13,14 @@ export const TextInput = ({
     name,
     overrideType = 'text'
 }) => {
+
+    const [stateValue, setStateValue] = useState('');
     // Notify the parent of the change only if the event has a change.
     const handleChangeEvent = e => {
-        if (!Object.prototype.hasOwnProperty.call(e, ['target.value'])) return;
 
+        if (!Object.prototype.hasOwnProperty.call(e, 'target') || !Object.prototype.hasOwnProperty.call(e.target, 'value')) return;
+
+        setStateValue(e.target.value);
         setValue(e.target.value);
     };
 
@@ -29,7 +34,7 @@ export const TextInput = ({
                     type={overrideType}
                     name={name}
                     placeholder={placeholder}
-                    value={value}
+                    value={stateValue}
                     onChange={handleChangeEvent}
                 />
             </label>

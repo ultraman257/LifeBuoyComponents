@@ -7,17 +7,23 @@ import * as PropTypes from 'prop-types';
 import './style.css';
 
 export const LoginPage = ({ isError = false, handleRegister, handleLogin }) => {
+
     const [formData, setFormData] = useState({});
 
     const handleFieldChange = e => {
+
+        if(!e.target) return;
+
         const { name, value } = e.target;
 
-        setFormData(data => {
-            return { ...data, [name]: value };
-        });
+        let data = { ...formData, [name]: value };
+
+        setFormData(data);
+
     };
 
     const handleClick = e => {
+        console.log(formData)
         handleLogin(formData);
     };
 
@@ -28,6 +34,7 @@ export const LoginPage = ({ isError = false, handleRegister, handleLogin }) => {
             <div className={'loginForm'}>
                 <h1>Login</h1>
                 <TextInput
+                    key={'username'}
                     isError={isError}
                     setValue={handleFieldChange}
                     placeholder={'Username'}
@@ -36,6 +43,7 @@ export const LoginPage = ({ isError = false, handleRegister, handleLogin }) => {
                     value={formData['username']}
                 />
                 <TextInput
+                    key={'password'}
                     isError={isError}
                     setValue={handleFieldChange}
                     placeholder={'Password'}
@@ -45,7 +53,7 @@ export const LoginPage = ({ isError = false, handleRegister, handleLogin }) => {
                     overrideType={'password'}
                 />
                 <div className={'button-group'}>
-                    <Button onClick={handleClick} content={'Login'} />
+                    <Button onClick={handleClick} hasConfetti={true} content={'Login'} />
                     <Button onClick={handleRegister} content={'Register'} />
                 </div>
             </div>
